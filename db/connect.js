@@ -12,10 +12,4 @@ module.exports = {
   query: (text, params, callback) => {
     return pool.query(text, params, callback);
   },
-  // Used for transactions
-  getClient: (callback) => {
-    pool.connect((err, client, done) => {
-      callback(err, client, done)
-    });
-  },
 }

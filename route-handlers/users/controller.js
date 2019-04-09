@@ -4,9 +4,9 @@ const db = require('../../db/connect');
 const getUsers = (req, res, next) => {
   db.query('SELECT * FROM reservation_user', (err, result) => {
     if (err) {
-      return next(err)
+      return next(err);
     }
-    res.send(result.rows)
+    res.send(result.rows);
   })
 }
 
@@ -15,9 +15,9 @@ const getUsersId = (req, res, next) => {
   const userId = req.params.userId;
   db.query('SELECT * FROM reservation_user WHERE id = $1', [userId], (err, result) => {
     if (err) {
-      return next(err)
+      return next(err);
     }
-    res.send(result.rows)
+    res.send(result.rows);
   })
 }
 

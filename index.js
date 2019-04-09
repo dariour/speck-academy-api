@@ -26,4 +26,6 @@ router.get('/', (req, res) => {
   res.send('ok');
 });
 
+app.use('/', router);
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

@@ -2,8 +2,7 @@ const db = require('../../db/connect');
 
 // Route /halls
 const getHalls = (req, res, next) => {
-  const queryClient = db.getClient();
-  queryClient.query('SELECT * FROM reservation_halls', (err, result) => {
+  db.query('SELECT * FROM reservation_halls', (err, result) => {
     if (err) {
       return next(err);
     };
