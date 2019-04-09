@@ -1,4 +1,4 @@
-const db = require('../db/connect');
+const db = require('../../db/connect');
 
 // Route /users
 const getUsers = (req, res, next) => {

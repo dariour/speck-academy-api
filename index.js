@@ -5,6 +5,8 @@ const {
   hallsHandler,
 } = require('./route-handlers');
 
+const router = new express.Router();
+
 const app = express();
 const port = 3000;
 
@@ -15,15 +17,13 @@ app.use(
   })
 )
 
+// Base routes
+router.use('/users', usersHandler);
+router.use('/halls', hallsHandler);
+
 // Test route
-app.get('/', (req, res, next) => res.send('ok'));
-
-// User routes
-app.get('/users', usersHandler.getUsers);
-app.get('/users/:userId', usersHandler.getUsersId);
-
-// Hall routes
-app.get('/halls', hallsHandler.getHalls);
-app.get('/halls/:hallId', hallsHandler.getHallsId);
+router.get('/', (req, res) => {
+  res.send('ok');
+});
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
