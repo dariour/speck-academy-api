@@ -1,3 +1,4 @@
+const express = require('express');
 const hallsController = require('./controller');
 const router = new express.Router();
 
